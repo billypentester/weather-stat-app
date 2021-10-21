@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/style.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>error :(</title>
+    <style>
+        .bg{
+            background-image: url("../../public/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position:bottom;
+            background-attachment: fixed;
+        }
+        @media (max-width: 600px) {
+            .wa{
+                width: 90%;
+            }
+            .t{
+                font-size: 20px;
+                margin-top: 1%;
+                margin-bottom: 1%;
+                padding: 10px 3px;
+            }
+        }
+    </style>
+</head>
+<body class="bg m-5 p-3 ">
+    <div class="flex justify-center flex-wrap ">
+        <div class="lg:w-2/3 w-full bg-gray-500 opacity-70 rounded-md lg:p-10 p-3">
+                <h1 class="lg:text-4xl text-3xl text-white font-bold text-center block my-10"><span class="font-semibold italic">{{name}}</span> is not a valid city name.</h1>
+                <a href="/">
+                    <div class="bg-green-400 hover:bg-green-500 rounded-md w-34 flex m-auto justify-center">
+                        <i class="fas fa-arrow-left text-lg text-white font-semibold my-3 p-3 inline-block white"></i>
+                        <button class=" m-3 text-lg text-white font-semibold inline-block">Go back</button>
+                    </div>
+                </a>
+                
+            </form>
+        </div>
+    </div>
+</body>
+</html>

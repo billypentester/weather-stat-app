@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/style.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>weather app</title>
+    <style>
+        .bg{
+            background-image: url("../../public/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position:bottom;
+            background-attachment: fixed;
+        }
+        @media (max-width: 600px) {
+            .wa{
+                width: 90%;
+            }
+            .t{
+                font-size: 20px;
+                margin-top: 1%;
+                margin-bottom: 1%;
+                padding: 10px 3px;
+            }
+        }
+    </style>
+</head>
+<body class="bg">
+    <div class="flex justify-center h-screen flex-wrap ">
+        <div class="lg:w-1/3 md:w-2/3 wa m-auto">
+            <form autocomplete="off" method="get" action="index">
+                <h1 class="text-7xl text-white font-bold text-center block my-10">live weather</h1>
+                <div class="my-10">
+                    <input class="block p-5 text-center border-b-2 border-gray-400 my-5 bg-transparent t w-full outline-none text-2xl focus:outline-none  px-20 border-b-2 hover:border-gray-900 " type="text" name="find" placeholder="Enter any city......" />
+                    <input class="block text-center p-5 w-full rounded-md my-5 text-2xl text-gray-500 font-semibold cursor-pointer " type="submit"  value="search" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

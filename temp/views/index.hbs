@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/style.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="9B73634E-AA1B-48FC-9C53-5B078DFEDD10" crossorigin="anonymous"/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Welcome</title>
+    <style>
+
+        .bg{
+            background-image: url({{pic}});
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position:center;
+            background-attachment: fixed;
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+        width: 5px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey; 
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: floralwhite;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+        background: gray; 
+        }
+
+        .colo{
+            background-image : linear-gradient(to bottom, rgb(251, 113, 133,1), rgb(253, 186, 116,0.8));
+        }
+
+        .colo2{
+            background-image : linear-gradient(to bottom, rgb(217, 119, 6,1), rgb(220, 38, 38,0.8));
+        }
+
+        .colo3{
+            background-image : linear-gradient(to bottom, rgb(56, 189, 248,1), rgb(59, 130, 246,0.8))
+        }
+
+        .colo4{
+            background-image: linear-gradient(to bottom, rgb(29, 78, 216,1), rgb(30, 64, 175,0.9), rgb(17, 24, 39,0.8));
+        }
+
+        .sky{
+            background-image: linear-gradient(to right, rgb(56, 189, 248,0.8), rgb(59, 130, 246,0.7));
+        }
+
+        .msg{
+            background-image: linear-gradient(to right, rgb(56, 189, 248,0.5), rgb(59, 130, 246,0.5));
+        }
+        
+        .arrow{
+            position: relative;
+            top : 25%
+        }
+        @media (max-width: 400px) {
+            .w{
+                font-size: 110px;
+            }
+        }
+        @media (max-width: 345px) {
+            .w{
+                font-size: 90px;
+            }
+            .qd{
+                font-size: 15px;
+            }
+            .ico{
+                width: 40px;
+            }
+        }
+        
+    </style>
+</head>
+<body class="bg scrollbar-hidden">
+
+    <a href="/">
+        <div class="bg-white rounded-full fixed top-0 z-10 left-0 m-5 p-3 w-14 h-14 opacity-50 flex justify-center items-center cursor-pointer">
+            <i class="fas fa-arrow-left text-2xl bg-transparent text-center"></i>
+        </div>
+    </a>
+
+    <!-- shaded front temp -->
+
+    <div class="h-screen fixed">
+        <div class="md:w-2/3 w-full inline-block flex h-screen items-end float-left fixed">
+            <div class="lg:h-1/3 h-1/2 flex items-center bg-gradient-to-t from-black w-full to-transparent">
+                <div class="p-8 w-full">
+                    <h1 class="w text-9xl lg:inline-block sm:block inline-block text-gray-200 mx-3 font-semibold">{{temp}}<span>&#176;</span></h1>
+                    <div class="inline-block sm:hidden sm:mx-5 mx-2 ico">
+                        <span><img src="https://openweathermap.org/img/wn/{{icon}}@2x.png" class="w-14 text-white text-center bg-gray-300 rounded-md opacity-80"/></span>
+                        <h1 class="text-lg text-gray-200 my-1 font-semibold text-center">{{condition}}</h1>
+                    </div>
+                    <div class="inline-block mx-1">
+                        <h1 class="text-7xl text-gray-200 font-semibold">{{city}}</h1>
+                        <span class="text-lg text-gray-200 qd"> {{date.time}} - {{date.name}}, {{date.date}} {{date.month}} '{{date.year}}</span>
+                    </div>
+                    <div class="sm:inline-block hidden sm:mx-5 mx-2 ">
+                        <span><img src="https://openweathermap.org/img/wn/{{icon}}@2x.png" class="w-14 text-white text-center bg-gray-300 rounded-md opacity-80"/></span>
+                        <h1 class="text-lg text-gray-200 my-1 font-semibold text-center">{{condition}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- right sidebar -->
+
+
+    <div class="lg:w-1/3 xl:w-1/3 md:w-1/2 w-1/2 flex md:inline-block float-right hidden overflow-hidden">
+        <div class="w-full backdrop-blur-md backdrop-filter shadow-2xl">
+
+
+            <div class="space-y-2 p-5">
+
+                <!-- statistics -->
+
+                <div class="{{date.webicons.backcol}} flex align-middle justify-center items-center space-x-7 rounded-md text-center px-5 py-10 shadow-lg bg-opacity-50 box-content">
+                    <h1 class="text-white text-4xl md:text-2xl lg:text-3xl font-semibold ">{{date.webicons.greeting}}</h1>
+                    <img src="{{date.webicons.icon}}" class="w-14 " /> 
+                </div>
+                <div class="xl:hidden block w-full xl:w-1/3 bg-indigo-600 rounded-md text-center p-5 shadow-lg bg-opacity-70">
+                        <h1 class="text-white text-5xl font-semibold mb-2"> {{feels}}<span>&#176;</span></h1>
+                        <span class="text-white text-lg mt-3">feels like </span>
+                    </div>
+                <div class="xl:space-x-2 space-x-2 md:space-y-0 space-y-2 flex justify-center md:flex-nowrap flex-wrap">
+                    <div class="w-1/2 xl:w-1/3 bg-indigo-500 rounded-md text-center p-5 shadow-lg bg-opacity-70">
+                        <h1 class="text-white text-5xl font-semibold mb-2"> {{temp_max}}<span>&#176;</span></h1>
+                        <span class="text-white text-lg mt-3">max temp </span>
+                    </div>
+                    <div class="w-full xl:block hidden xl:w-1/3 bg-indigo-600 rounded-md text-center p-5 shadow-lg bg-opacity-70">
+                        <h1 class="text-white text-5xl font-semibold mb-2"> {{feels}}<span>&#176;</span></h1>
+                        <span class="text-white text-lg mt-3">feels like </span>
+                    </div>
+                    <div class="w-1/2 xl:w-1/3 bg-indigo-500 rounded-md text-center p-5 shadow-lg bg-opacity-70">
+                        <h1 class="text-white text-5xl font-semibold mb-2"> {{temp_min}}<span>&#176;</span></h1>
+                        <span class="text-white text-lg mt-3">min temp </span>
+                    </div>
+                </div>
+                <div class="xl:space-x-2 space-x-0 xl:space-y-0 space-y-2 flex justify-center xl:flex-nowrap flex-wrap">
+                    <div class="xl:w-1/2 lg:w-full xl:w-1/2 md:w-full bg-yellow-500 rounded-md text-center p-5 shadow-lg bg-opacity-70">
+                        <h1 class="text-white text-5xl font-semibold mb-2"> {{sunrise}} </h1>
+                        <span class="text-white text-lg mt-3">sunrise</span>
+                    </div>
+                    <div class="xl:w-1/2 lg:w-full xl:w-1/2 md:w-full bg-red-500 rounded-md text-center p-5 shadow-lg bg-opacity-70">
+                        <h1 class="text-white text-5xl font-semibold mb-2">{{sunset}}</h1>
+                        <span class="text-white text-lg mt-3">sunset</span>
+                    </div>
+                </div>
+                <div class="bg-green-500 rounded-md text-center p-5 shadow-lg bg-opacity-70">
+                    <h1 class="text-white text-5xl font-semibold mb-2">{{humidity}} %</h1>
+                    <span class="text-white text-lg mt-3">humidity</span>
+                </div>
+                <div class="bg-gray-500 rounded-md text-center p-5 shadow-lg bg-opacity-70">
+                    <h1 class="text-white text-5xl font-semibold mb-2"> {{wind}} m/s</h1>
+                    <span class="text-white text-lg mt-3">wind</span>
+                </div>
+
+                <!-- forcast -->
+                
+                <div class="msg p-5 shadow-md rounded-md bg-opacity-70 space-y-2">
+                    <h1 class="text-center my-5 text-white text-4xl font-semibold py-5">hourly forecast</h1>
+                    <div class="sky rounded-md p-5 shadow-lg bg-opacity-70">
+                        <div class="text-white flex justify-around mb-3 text-center lg:space-y-0 space-y-4 flex-wrap">  
+                            <div class="2xl:w-1/4 xl:w-1/2 lg:w-1/2 md:w-full">
+                                <span class="text-white text-sm block my-2">{{time.[0]}}</span>
+                                <span class="text-white text-4xl font-semibold block flex justify-center"><img src="https://openweathermap.org/img/wn/{{icons.[0]}}@2x.png" /></span></span>
+                                <span class="text-white font-semibold block">{{status.[0]}}</span>
+                            </div>
+                            <div class="2xl:w-1/4 xl:w-1/2 lg:w-1/2 md:w-full">
+                                <span class="text-white text-sm block my-2">{{time.[2]}}</span>
+                                <span class="text-white text-4xl font-semibold block flex justify-center"><img src="https://openweathermap.org/img/wn/{{icons.[2]}}@2x.png" /></span></span>
+                                <span class="text-white font-semibold block">{{status.[2]}}</span>
+                            </div>
+                            <div class="2xl:w-1/4 xl:w-1/2 lg:w-1/2 md:w-full">
+                                <span class="text-white text-sm  block my-2">{{time.[4]}}</span>
+                                <span class="text-white text-4xl font-semibold block flex justify-center"><img src="https://openweathermap.org/img/wn/{{icons.[4]}}@2x.png" /></span></span>
+                                <span class="text-white font-semibold block">{{status.[4]}}</span>
+                            </div>
+                            <div class="2xl:w-1/4 xl:w-1/2 lg:w-1/2 md:w-full">
+                                <span class="text-white text-sm  block my-2">{{time.[6]}}</span>  
+                                <span class="text-white text-4xl font-semibold block flex justify-center"><img src="https://openweathermap.org/img/wn/{{icons.[6]}}@2x.png" /></span></span>
+                                <span class="text-white font-semibold block">{{status.[6]}}</span>
+                            </div>
+                        </div>    
+                        
+                        <span class="block text-white text-lg mt-5 font-semibold text-center"> {{dstamp.[0]}} / {{dstamp.[4]}}</span>
+                        
+                    </div>
+                    <div class="sky rounded-md p-5 shadow-lg bg-opacity-70">
+                        <div class="text-white flex justify-around mb-3 text-center lg:space-y-0 space-y-4 flex-wrap">  
+                            <div class="2xl:w-1/4 xl:w-1/2 lg:w-1/2 md:w-full">
+                                <span class="text-white text-sm block my-2">{{time.[8]}}</span>
+                                <span class="text-white text-4xl font-semibold block flex justify-center"><img src="https://openweathermap.org/img/wn/{{icons.[8]}}@2x.png" /></span></span>
+                                <span class="text-white font-semibold block">{{status.[8]}}</span>
+                            </div>
+                            <div class="2xl:w-1/4 xl:w-1/2 lg:w-1/2 md:w-full">
+                                <span class="text-white text-sm block my-2">{{time.[10]}}</span>
+                                <span class="text-white text-4xl font-semibold block flex justify-center"><img src="https://openweathermap.org/img/wn/{{icons.[10]}}@2x.png" /></span></span>
+                                <span class="text-white font-semibold block">{{status.[10]}}</span>
+                            </div>
+                            <div class="2xl:w-1/4 xl:w-1/2 lg:w-1/2 md:w-full">
+                                <span class="text-white text-sm  block my-2">{{time.[12]}}</span>
+                                <span class="text-white text-4xl font-semibold block flex justify-center"><img src="https://openweathermap.org/img/wn/{{icons.[12]}}@2x.png" /></span></span>
+                                <span class="text-white font-semibold block">{{status.[12]}}</span>
+                            </div>
+                            <div class="2xl:w-1/4 xl:w-1/2 lg:w-1/2 md:w-full">
+                                <span class="text-white text-sm  block my-2">{{time.[14]}}</span>  
+                                <span class="text-white text-4xl font-semibold block flex justify-center"><img src="https://openweathermap.org/img/wn/{{icons.[14]}}@2x.png" /></span></span>
+                                <span class="text-white font-semibold block">{{status.[14]}}</span>
+                            </div>
+                        </div>    
+                        
+                        <span class="block text-white text-lg mt-5 font-semibold text-center">{{dstamp.[8]}} / {{dstamp.[12]}}</span>
+                        
+                    </div>
+                    <div class="sky rounded-md p-5 shadow-lg bg-opacity-70">
+                        <div class="text-white flex justify-around mb-3 text-center lg:space-y-0 space-y-4 flex-wrap">  
+                            <div class="2xl:w-1/4 xl:w-1/2 lg:w-1/2 md:w-full">
+                                <span class="text-white text-sm block my-2">{{time.[16]}}</span>
+                                <span class="text-white text-4xl font-semibold block flex justify-center"><img src="https://openweathermap.org/img/wn/{{icons.[16]}}@2x.png" /></span></span>
+                                <span class="text-white font-semibold block">{{status.[16]}}</span>
+                            </div>
+                            <div class="2xl:w-1/4 xl:w-1/2 lg:w-1/2 md:w-full">
+                                <span class="text-white text-sm block my-2">{{time.[18]}}</span>
+                                <span class="text-white text-4xl font-semibold block flex justify-center"><img src="https://openweathermap.org/img/wn/{{icons.[18]}}@2x.png" /></span></span>
+                                <span class="text-white font-semibold block">{{status.[18]}}</span>
+                            </div>
+                            <div class="2xl:w-1/4 xl:w-1/2 lg:w-1/2 md:w-full">
+                                <span class="text-white text-sm  block my-2">{{time.[20]}}</span>
+                                <span class="text-white text-4xl font-semibold block flex justify-center"><img src="https://openweathermap.org/img/wn/{{icons.[20]}}@2x.png" /></span></span>
+                                <span class="text-white font-semibold block">{{status.[20]}}</span>
+                            </div>
+                            <div class="2xl:w-1/4 xl:w-1/2 lg:w-1/2 md:w-full">
+                                <span class="text-white text-sm  block my-2">{{time.[24]}}</span>  
+                                <span class="text-white text-4xl font-semibold block flex justify-center"><img src="https://openweathermap.org/img/wn/{{icons.[24]}}@2x.png" /></span></span>
+                                <span class="text-white font-semibold block">{{status.[24]}}</span>
+                            </div>
+                        </div>    
+                    
+                        <span class="block text-white text-lg mt-5 font-semibold text-center">{{dstamp.[16]}} / {{dstamp.[24]}}</span>
+                    
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- created by billy -->
+            
+            <div class="bg-red-500 p-3 bg-opacity-70 text-center text-lg text-white hover:bg-white hover:text-red-500">
+                <p class="inline-block">created by</p><a class="hover:underline font-bold inline-block m-2" href="github.com/billypentester">billy</a>
+            </div> 
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
